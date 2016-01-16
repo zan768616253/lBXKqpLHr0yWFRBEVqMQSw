@@ -2,15 +2,18 @@
 
 var Promise = require('bluebird');
 var cp = require('child_process');
+var path = require('path');
 
-var config = require('../config.js');
+var config = require('./config.js');
 
-var StartConsumer = function () {
+var root = path.join(__dirname, '../');
+
+(function () {
     return new Promise(function (resolve, reject) {
         try {
             var fork_num = config.consumer.fork_num || 2;
             for (var i = 0; i < fork_num; i++) {
-                cp.fork('./consumer/worker.js');
+                cp.fork(root + 'lib/worker.js');
                 console.log('fork process ' + i);
             }
             resolve(fork_num);
@@ -18,7 +21,8 @@ var StartConsumer = function () {
             reject(new ForkError('process fork error'))
         }
     })
-}
+})()
+
 
 function ForkError (message) {
     this.message = message;
@@ -27,6 +31,4 @@ function ForkError (message) {
 }
 ForkError.prototype = Object.create(Error.prototype);
 ForkError.prototype.constructor = ForkError;
-
-module.exports.StartConsumer = StartConsumer;
 

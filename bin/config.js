@@ -12,13 +12,23 @@ var config = {
         tube: 'zan768616253'
     },
     handler: {
-        success_delay: 60000,
-        fail_delay: 3000,
+        success_delay: 60,
+        fail_delay: 3,
         success_max_count: 10,
         fail_max_count: 3
     },
     consumer: {
-        fork_num: 2
+        fork_num: 1
+    },
+    producer: {
+        seed: {
+            type: 'exchange_rate',
+            payload: {
+                from: 'USD',
+                to: 'HKD'
+            }
+        }
+
     }
 }
 

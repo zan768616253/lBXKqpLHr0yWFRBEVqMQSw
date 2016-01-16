@@ -5,12 +5,12 @@ var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should;
 
-var ExchagneHandler = require('../consumer/exchange_handler.js').ExchagneHandler;
-var BeanStalkError = require('../consumer/exchange_handler.js').Error.BeanStalkError;
-var config = require('../config.js');
+var ExchagneHandler = require('../lib/exchange_handler.js').ExchagneHandler;
+var BeanStalkError = require('../lib/exchange_handler.js').Error.BeanStalkError;
+var config = require('../bin/config.js');
 
 describe('consumer/exchange_handler.js', function () {
-    this.timeout(15000);
+    this.timeout(20000);
 
     var handler;
 
@@ -36,7 +36,6 @@ describe('consumer/exchange_handler.js', function () {
 
     it ('should save the rate', function (done) {
         var currency = {
-            jobID: getRandomInt(1, 10000),
             from: 'USD',
             to: 'HKD'
         };
@@ -77,9 +76,25 @@ describe('consumer/exchange_handler.js', function () {
 
         var resolveCurrency = function () {
             return new Promise(function (resolve, reject) {
+                handler.currency = currency;
                 resolve(currency);
             })
         };
+
+
+        ExchagneHandler.prototype.handleWorkSuccess = function () {
+            var self = this;
+            self.success_count++;
+            console.log('success for ' + self.success_count);
+            setTimeout(self.work.bind(self), this.success_delay);
+        }
+
+        ExchagneHandler.prototype.handleWorkFailed = function (err) {
+            var self = this;
+            self.fail_count++;
+            console.log(err.message);
+            setTimeout(self.work.bind(self), this.fail_delay);
+        }
 
         ExchagneHandler.prototype.work = function () {
             var self = this;
@@ -93,10 +108,9 @@ describe('consumer/exchange_handler.js', function () {
             }
         }
 
-        handler.work();
+        resolveCurrency()
+            .then(handler.work.bind(handler));
     })
-
-
 })
 
 function getRandomInt(min, max) {
