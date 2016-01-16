@@ -1,0 +1,178 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @zan768616253
+ Watch 4
+  Star 3
+  Fork 4 AfterShip/challenge
+ Code  Issues 1  Pull requests 0  Wiki  Pulse  Graphs
+Branch: backend-level-… Find file Copy pathchallenge/.gitignore
+fb7da59  on Mar 28, 2015
+@teddychan teddychan add level 1
+1 contributor
+RawBlameHistory    161 lines (105 sloc)  2.97 KB
+# v1.0.3 2015-01-08
+
+
+
+# ------------------------------------------------------------------------------
+# Add your custom excludes below
+# ------------------------------------------------------------------------------
+
+
+# =============== log ignore
+node_modules
+builtAssets
+
+/node_modules/*
+/tmp/*
+/builtAssets/*
+*.log
+
+
+# =========================== DO NOT touch below v1.0.3 ===============================
+
+
+node_modules
+
+# =============== RubyMine.gitignore
+# =============== PhPStorm.gitignore
+.idea
+
+
+# =============== OSX.gitignore
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# =============== # Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Except the .htpassed
+!.htpasswd
+!.nodemonignore
+
+npm-debug.log
+
+dump.rdb
+
+
+
+
+
+
+
+# FROM https://github.com/niftylettuce/node-email-templates/blob/master/.gitignore
+
+# ------------------------------------------------------------------------------
+# Common Node files and folders
+#  https://github.com/github/gitignore/blob/master/Node.gitignore
+# ------------------------------------------------------------------------------
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+node_modules
+npm-debug.log
+
+
+# ------------------------------------------------------------------------------
+# Nodemon
+# ------------------------------------------------------------------------------
+
+.monitor
+
+
+# ------------------------------------------------------------------------------
+# JSHint
+# ------------------------------------------------------------------------------
+
+jshint
+
+
+# ------------------------------------------------------------------------------
+# Numerous always-ignore extensions
+# ------------------------------------------------------------------------------
+
+*.diff
+*.err
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+
+# ------------------------------------------------------------------------------
+# Files from other repository control systems
+# ------------------------------------------------------------------------------
+
+.hg
+.svn
+.CVS
+
+
+# ------------------------------------------------------------------------------
+# PHPStorm, RubyMine
+# ------------------------------------------------------------------------------
+
+.idea
+
+
+# ------------------------------------------------------------------------------
+# OS X and other IDE's folder attributes
+# ------------------------------------------------------------------------------
+
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+
+# ------------------------------------------------------------------------------
+# Dreamweaver added files
+# ------------------------------------------------------------------------------
+
+_notes
+dwsync.xml
+
+
+# ------------------------------------------------------------------------------
+# Komodo
+# ------------------------------------------------------------------------------
+
+*.komodoproject
+.komodotools
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
