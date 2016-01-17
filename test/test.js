@@ -1,16 +1,15 @@
 'use strict';
 
-var Promise = require('bluebird');
-var chai = require('chai');
-var expect = chai.expect;
-var should = chai.should;
+let chai = require('chai');
+let expect = chai.expect;
 
-var ExchagneHandler = require('../lib/exchange_handler.js').ExchagneHandler;
-var BeanStalkError = require('../lib/exchange_handler.js').Error.BeanStalkError;
-var config = require('../bin/config.js');
+let config = require('../bin/config.js');
 
-describe('consumer/exchange_handler.js', function () {
+describe('lib/exchange_handler.js', function () {
     this.timeout(20000);
+
+    let ExchagneHandler = require('../lib/exchange_handler.js').ExchagneHandler;
+    var BeanStalkError = require('../lib/exchange_handler.js').Error.BeanStalkError;
 
     var handler;
 
