@@ -17,7 +17,7 @@ describe('lib/exchange_handler.js', function () {
 	});
 
 	it('should get rate', function (done) {
-		var currency = {
+		let currency = {
 			jobID: getRandomInt(1, 10000),
 			from: 'USD',
 			to: 'HKD'
@@ -83,7 +83,6 @@ describe('lib/exchange_handler.js', function () {
 		ExchagneHandler.prototype.handleWorkSuccess = function () {
 			let self = this;
 			self.success_count++;
-			console.log('success for ' + self.success_count);
 			setTimeout(self.work.bind(self), this.success_delay);
 		};
 

@@ -28,4 +28,3 @@ function ForkError(message) {
 }
 ForkError.prototype = Object.create(Error.prototype);
 ForkError.prototype.constructor = ForkError;
-
