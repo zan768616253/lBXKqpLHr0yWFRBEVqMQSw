@@ -79,7 +79,6 @@ describe('lib/exchange_handler.js', function () {
 			});
 		};
 
-
 		ExchagneHandler.prototype.handleWorkSuccess = function () {
 			let self = this;
 			self.success_count++;
