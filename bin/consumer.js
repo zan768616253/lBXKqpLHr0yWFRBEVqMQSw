@@ -20,7 +20,6 @@ let config = require('./config.js');
 	});
 })();
 
-
 function ForkError(message) {
 	this.message = message;
 	this.name = 'ForkError';

@@ -8,7 +8,7 @@ let BeanStalkError = require('../lib/exchange_handler.js').Error.BeanStalkError;
 let config = require('../bin/config.js');
 
 describe('lib/exchange_handler.js', function () {
-	this.timeout(20000);
+	this.timeout(30000);
 
 	let handler;
 
@@ -18,7 +18,6 @@ describe('lib/exchange_handler.js', function () {
 
 	it('should get rate', function (done) {
 		let currency = {
-			jobID: getRandomInt(1, 10000),
 			from: 'USD',
 			to: 'HKD'
 		};
@@ -63,52 +62,37 @@ describe('lib/exchange_handler.js', function () {
 		});
 	});
 
-	it('should work ok', function (done) {
-		let currency = {
-			jobID: getRandomInt(1, 10000),
+	it('should work success', function (done) {
+		handler.success_delay = 50;
+		handler.fail_delay = 50;
+
+		let payload_data = {
 			from: 'USD',
 			to: 'HKD'
 		};
 
-		handler.success_delay = 10;
+		handler.work(payload_data, function	(result) {
+			expect(handler.success_count).to.eql(0);
+			expect(handler.fail_count).to.eql(0);
+			console.log('result: ' + result);
+			done();
+		});
+	});
 
-		let resolveCurrency = function () {
-			return new Promise(function (resolve, reject) {
-				handler.currency = currency;
-				resolve(currency);
-			});
+	it('should work failed', function (done) {
+		handler.success_delay = 50;
+		handler.fail_delay = 50;
+
+		let payload_data = {
+			from: 'UNKNOWN',
+			to: 'HKD'
 		};
 
-		ExchagneHandler.prototype.handleWorkSuccess = function () {
-			let self = this;
-			self.success_count++;
-			setTimeout(self.work.bind(self), this.success_delay);
-		};
-
-		ExchagneHandler.prototype.handleWorkFailed = function (err) {
-			let self = this;
-			self.fail_count++;
-			console.log(err.message);
-			setTimeout(self.work.bind(self), this.fail_delay);
-		};
-
-		ExchagneHandler.prototype.work = function () {
-			let self = this;
-			if (self.checkStatus()) {
-				resolveCurrency()
-					.then(self.getRate.bind(self), self.handleError.bind(self))
-					.then(self.saveRate.bind(self), self.handleError.bind(self))
-					.then(self.handleWorkSuccess.bind(self), self.handleWorkFailed.bind(self));
-			} else {
-				done();
-			}
-		};
-
-		resolveCurrency()
-			.then(handler.work.bind(handler));
+		handler.work(payload_data, function	(result) {
+			expect(handler.success_count).to.eql(0);
+			expect(handler.fail_count).to.eql(0);
+			console.log('result: ' + result);
+			done();
+		});
 	});
 });
-
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min)) + min;
-}

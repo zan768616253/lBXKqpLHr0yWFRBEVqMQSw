@@ -1,5 +1,6 @@
 'use strict';
 
+let co = require('co');
 let fivebeans = require('fivebeans');
 
 let config = require('./config.js');
@@ -31,12 +32,13 @@ let produceJob = function (client) {
 					if (err) {
 						reject(new BeanStalkError('beanstalk client connect error'));
 					}
-					client.put(1, 0, 100, input, function (e, jobid) {
+					client.put(1, 0, 3000, input, function (e, jobid) {
 						if (e) {
 							reject(new BeanStalkError('beanstalk produce job error'));
 						}
 						console.log(jobid);
 						client.end();
+						resolve();
 					});
 				});
 			})
@@ -51,8 +53,9 @@ let produceJob = function (client) {
 	});
 };
 
-createClient()
-	.then(produceJob, function (err) {
-		console.log(err.message);
-	}
-);
+co(function* () {
+	let client = yield createClient();
+	yield produceJob(client);
+}).catch(function (err) {
+	console.log(err.message);
+});
