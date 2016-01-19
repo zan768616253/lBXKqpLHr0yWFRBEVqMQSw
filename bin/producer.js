@@ -38,7 +38,7 @@ let produceJob = function (client) {
 						}
 						console.log(jobid);
 						client.end();
-						resolve();
+						resolve(jobid);
 					});
 				});
 			})

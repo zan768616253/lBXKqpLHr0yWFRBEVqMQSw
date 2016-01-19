@@ -8,7 +8,7 @@
 
 - Full fill the goal requirement as much as I can
 
-- The consumer should be able to deploy Scale horizontally
+- The consumer worker should be able to deploy Scale horizontally
 
 - Using co + bluebird
 
