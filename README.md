@@ -16,7 +16,7 @@
 
 - Follow aftership coding documentation as much as I can
 
-- Include unit test, mainly for consumer work part
+- Include unit test, mainly for consumer worker part
 
 ### How it work?
 
