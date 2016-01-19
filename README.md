@@ -20,24 +20,24 @@
 
 ### How it work?
 
-1. Install grunt
+- Install grunt
 
-`npm install -g grunt-cli`
+  `npm install -g grunt-cli`
 
-2. Install modules
+- Install modules
 
-`npm install`
+  `npm install`
 
-3. Test, include eslint checking (grunt lint) and unit test (grunt test)
+- Test, include eslint checking (grunt lint) and unit test (grunt test)
 
-`npm test`
+  `npm test`
 
-4. Change config if needed (CD to the 'bin' folder and modify config.js)
+- Change config if needed (Go to the 'bin' folder and modify config.js)
 
-5. Run the producer (CD to the 'bin' folder and run the command)
+- Run the producer (Go to the 'bin' folder and run the command)
 
-`node producer.js`
+  `node producer.js`
 
-6. Run the consumer (CD to the 'bin' folder and run the command)
+- Run the consumer (Go to the 'bin' folder and run the command)
 
-`node consumer.js`
+  `node consumer.js`
