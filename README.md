@@ -3,12 +3,19 @@
 ### Description
 
 *Ubuntu 14.04
+
 *NodeJs (v4.2.1)
+
 *Full fill the goal requirement
+
 *The consumer can be Scale horizontally
+
 *Using co + bluebird
+
 *Apply the code to eslint-config-aftership
+
 *Follow aftership coding documentation as much as I can
+
 *Include unit test, mainly for consumer work part
 
 ### How it work?
