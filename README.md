@@ -28,7 +28,7 @@
 
   `npm install`
 
-- Test, include eslint checking (grunt lint) and unit test (grunt test)
+- Test, include eslint checking (`grunt lint`) and unit test (`grunt test`)
 
   `npm test`
 
