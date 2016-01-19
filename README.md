@@ -6,9 +6,9 @@
 
 - NodeJs (v4.2.1)
 
-- Full fill the goal requirement
+- Full fill the goal requirement as much as I can
 
-- The consumer can be Scale horizontally
+- The consumer should be able to deploy Scale horizontally
 
 - Using co + bluebird
 
