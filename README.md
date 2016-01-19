@@ -2,42 +2,42 @@
 
 ### Description
 
-*Ubuntu 14.04
+- Ubuntu 14.04
 
-*NodeJs (v4.2.1)
+- NodeJs (v4.2.1)
 
-*Full fill the goal requirement
+- Full fill the goal requirement
 
-*The consumer can be Scale horizontally
+- The consumer can be Scale horizontally
 
-*Using co + bluebird
+- Using co + bluebird
 
-*Apply the code to eslint-config-aftership
+- Apply the code to eslint-config-aftership
 
-*Follow aftership coding documentation as much as I can
+- Follow aftership coding documentation as much as I can
 
-*Include unit test, mainly for consumer work part
+- Include unit test, mainly for consumer work part
 
 ### How it work?
 
-*Install grunt
+1. Install grunt
 
-npm install -g grunt-cli
+`npm install -g grunt-cli`
 
-*Install modules
+2. Install modules
 
-npm install
+`npm install`
 
-*Test, include eslint checking (grunt lint) and unit test (grunt test)
+3. Test, include eslint checking (grunt lint) and unit test (grunt test)
 
-npm test
+`npm test`
 
-*Change config if needed (CD to the 'bin' folder and modify config.js)
+4. Change config if needed (CD to the 'bin' folder and modify config.js)
 
-*Run the producer (CD to the 'bin' folder and run the command)
+5. Run the producer (CD to the 'bin' folder and run the command)
 
-node producer.js
+`node producer.js`
 
-*Run the consumer (CD to the 'bin' folder and run the command)
+6. Run the consumer (CD to the 'bin' folder and run the command)
 
-node consumer.js
+`node consumer.js`
