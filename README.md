@@ -14,23 +14,23 @@
 ### How it work?
 
 *Install grunt
-```
+
 npm install -g grunt-cli
 
 *Install modules
-```
+
 npm install
 
 *Test, include eslint checking (grunt lint) and unit test (grunt test)
-```
+
 npm test
 
 *Change config if needed (CD to the 'bin' folder and modify config.js)
 
 *Run the producer (CD to the 'bin' folder and run the command)
-```
+
 node producer.js
 
 *Run the consumer (CD to the 'bin' folder and run the command)
-```
+
 node consumer.js
